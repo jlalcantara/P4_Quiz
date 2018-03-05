@@ -63,7 +63,7 @@ biglog('CORE quiz', 'green');
                 cmds.editCmd(rl, args[1]);
                 break;
             case 'credits':
-                cmds.reditsCmd(rl);
+                cmds.creditsCmd(rl);
                 break;
             default:
                 console.log(`Comando desconocido '${colorize(cmd, 'red')}'`)
