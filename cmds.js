@@ -55,8 +55,13 @@ exports.testCmd = (rl, id) =>{
 
             rl.question(colorize(quiz.question , 'red'), answer =>{
                if(answer.toLowerCase().trim()===quiz.answer.toLowerCase().trim()){
+<<<<<<< HEAD
+                   biglog("Correcta", 'green');
+                   log("La respuesta es correcta. Sigue así");
+=======
                    log("CORRECTO");
                    biglog("CORRECTA", 'green');
+>>>>>>> adfa78a0eed08700f7e3564707ced8b28866d275
                    rl.prompt();
 
                 }else{
@@ -163,10 +168,16 @@ exports.playCmd = rl =>{
             rl.question(quiz.question, answer =>{
 
                 if(answer.toLowerCase().trim() === quiz.answer.toLowerCase().trim()){
+<<<<<<< HEAD
+                score++;
+                log(`CORRECTO - Llevas ${score} aciertos` )
+                biglog(`${score}`);
+=======
 
                     log(`CORRECTO - Llevas ${score} aciertos` )
                     score++;
                     biglog(`${score}`);
+>>>>>>> adfa78a0eed08700f7e3564707ced8b28866d275
 
                     toBeResolved.splice(ranId, 1);
                     playOne();
