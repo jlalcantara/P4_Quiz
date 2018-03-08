@@ -147,33 +147,30 @@ exports.creditsCmd = rl =>{
 exports.playCmd = rl =>{
 
     let score = 0;
-
     let toBeResolved = [];
-    model.getAll().forEach((quiz, id) => {
-        toBeResolved[id]=quiz;
-    });
+    toBeResolved = model.getAll();
 
     const playOne = () => {
 
         if(toBeResolved.length === 0){
-            log("No hay nada mas que preguntar");
+            log(`No hay nada mas que preguntar`);
             log (`Fin del juego. Aciertos ${score}`);
-            biglog(`${score}`);
+            biglog(score, 'green');
             rl.prompt();
         }else{
-            let ranId = Math.floor(Math.random()*toBeResolved.length);
-            let quiz = toBeResolved[ranId];
+            let id = Math.floor(Math.random()*(toBeResolved.length));
+            let quiz = toBeResolved[id];
             rl.question(quiz.question, answer =>{
 
                 if(answer.toLowerCase().trim() === quiz.answer.toLowerCase().trim()){
                 score++;
-                log(`CORRECTO - Llevas ${score} aciertos` )
-                biglog(`${score}`);
-                toBeResolved.splice(ranId, 1);
+                log(`CORRECTO - Llevas ${score} aciertos` );
+                biglog(score, 'green');
+                toBeResolved.splice(id, 1);
                 playOne();
             }else{
-                log(`INCORRECTO - Fin del juego ${score} aciertos` )
-                biglog(`${score}`);
+                log(`INCORRECTO - Fin del juego ${score} aciertos` );
+                biglog(score, 'red');
                 rl.prompt();
 
             }
@@ -184,4 +181,5 @@ exports.playCmd = rl =>{
     };
 
     playOne();
+    rl.prompt();
 };
