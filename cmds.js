@@ -56,16 +56,18 @@ exports.testCmd = (rl, id) =>{
             rl.question(colorize(quiz.question , 'red'), answer =>{
                if(answer.toLowerCase().trim()===quiz.answer.toLowerCase().trim())
             {
-                biglog("Correcta", 'green');
-                log("La respuesta es correcta. Sigue así");
-                   rl.prompt();
+                log(`La respuesta es correcta`);
+                biglog('Correcta', 'green');
+                rl.prompt();
 
                 }else{
-                   log("INCORRECTA");
-                   biglog("INCORRECTA" , 'red');
+                   log(`La respuesta es incorrecta`);
+                   biglog('Incorrecta' , 'red');
                    rl.prompt();
             }
             });
+
+            rl.prompt();
         }
         catch (error){
             errorlog(error.message);
