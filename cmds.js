@@ -155,7 +155,7 @@ exports.playCmd = rl =>{
         if(toBeResolved.length === 0){
             log(`No hay nada mas que preguntar`);
             log (`Fin del juego. Aciertos ${score}`);
-            log(score, 'green');
+            biglog(score, 'green');
             rl.prompt();
         }else{
             let id = Math.floor(Math.random()*(toBeResolved.length));
@@ -165,13 +165,12 @@ exports.playCmd = rl =>{
                 if(answer.toLowerCase().trim() === quiz.answer.toLowerCase().trim()){
                 score++;
                 log(`CORRECTO - Llevas ${score} aciertos` );
-                log(score, 'green');
+                biglog(score, 'green');
                 toBeResolved.splice(id, 1);
                 playOne();
             }else{
-                log(`INCORRECTO` );
-                log(`Fin del juego ${score} aciertos`)
-                log(score, 'red');
+                log(`INCORRECTO - Fin del juego ${score} aciertos` );
+                biglog(score, 'red');
                 rl.prompt();
 
             }

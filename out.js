@@ -1,33 +1,45 @@
-
+const chalk = require ('chalk');
 const figlet = require('figlet');
-const chalk = require('chalk');
 
-const colorize = (msg, color) => {
-	if(typeof color !== "undefined") {
-		msg = chalk[color].bold(msg);
-	}
-	return msg;
+
+/** Dar color a un string
+ *
+ */
+
+const colorize = (msg, color) =>{
+    if  ( typeof color !== "undefined"){
+        msg = chalk[color].bold(msg);
+    }
+    return msg;
 };
 
-const log = (msg, color) => {
-	console.log(colorize(msg,color));
+/**
+ * Escribe mensaje de log
+ */
+
+const log = (msg, color) =>{
+    console.log(colorize(msg, color));
 };
 
-const biglog = (msg, color) => {
+/**
+ * Escribe mensaje de log grande
+ */
 
-	log(figlet.textSync(msg, { horizontalLayout: 'full'}), color);
-
+const biglog = (msg,color)=>{
+    log(figlet.textSync(msg, {horizontalLayaout: 'full'}), color);
 };
 
-const errorlog = (emsg) => {
+/**
+ * Escribe mensaje de error
+ *
+ */
 
-	log(`${colorize("Error","red")}: ${colorize(colorize(emsg, "red"), "bgYellowBright")}`);
-
+const errorlog = (emsg) =>{
+    console.log(`${colorize("Error", "red")}: ${colorize(colorize(emsg, "red"), "bgYellowBright")}`);
 };
-
-exports = module.exports = {
-	colorize,
-	log,
-	biglog,
-	errorlog
+exports= module.exports = {
+    colorize,
+    log,
+    biglog,
+    errorlog
 };
