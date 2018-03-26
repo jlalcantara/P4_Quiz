@@ -1,6 +1,6 @@
+const Sequelize = require('sequelize');
 const {log, biglog, errorlog, colorize} = require('./out');
 const {models} = require('./model');
-const Sequelize = require('sequelize');
 
 
 
@@ -24,20 +24,14 @@ exports.helpCmd = rl =>{
 exports.listCmd = rl =>{
     models.quiz.findAll()
         .each(quiz => {
-
-        log(`[${colorize(quiz.id, 'magenta')}]: ${quiz.question}`);
-
-})
-
-.catch(error => {
-
-        errorlog(error.message);
-
-})
-.then(() => {
-
-        rl.prompt();
-});
+            log(`[${colorize(quiz.id, 'magenta')}]: ${quiz.question}`);
+        })
+        .catch(error => {
+            errorlog(error.message);
+        })
+        .then(() => {
+            rl.prompt();
+        });
 
 };
 const makeQuestion = (rl, text) => {

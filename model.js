@@ -1,5 +1,4 @@
 const Sequelize = require('sequelize');
-
 const sequelize = new Sequelize("sqlite:quizzes.sqlite", {logging: false});
 
 sequelize.define('quiz', {
@@ -23,7 +22,7 @@ sequelize.sync()
         { question: "Capital de Italia", answer: "Roma"},
         { question: "Capital de Francia", answer: "Paris"},
         { question: "Capital de España", answer: "Madrid"},
-        { question: "Capital de Portugal", answer: "Lisboa"},
+        { question: "Capital de Portugal", answer: "Lisboa"}
 
         ]);
     }
