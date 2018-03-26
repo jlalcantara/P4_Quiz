@@ -157,14 +157,6 @@ exports.editCmd = (rl, id) =>{
         });
 };
 
-exports.creditsCmd=rl=>{
-    console.log("Autores de la practica:");
-    console.log('nombre 1: Rodrigo Ozores Benito');
-
-    rl.prompt();
-
-};
-
 exports.creditsCmd = rl =>{
     console.log('Autores de la practica');
     console.log('Juan Luis Alcántara Alcaide');
